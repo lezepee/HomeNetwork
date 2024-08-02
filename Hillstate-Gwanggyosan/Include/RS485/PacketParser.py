@@ -187,7 +187,7 @@ class PacketParser:
             if self.type_interpret == ParserType.REGULAR:
                 if packet[3] == 0x15:  # 디밍조명
                     self.handleDimmingLight(packet)
-                    packet_info['device'] = 'emotion light'
+                    packet_info['device'] = 'dimming light'
                     store = self.enable_store_packet_header_15
                 elif packet[3] == 0x18:  # 난방
                     self.handleThermostat(packet)
@@ -199,7 +199,7 @@ class PacketParser:
                     store = self.enable_store_packet_header_19
                 elif packet[3] == 0x1A:  # 감성조명
                     self.handleEmotionLight(packet)
-                    packet_info['device'] = 'dimming light'
+                    packet_info['device'] = 'emotion light'
                     store = self.enable_store_packet_header_1A
                 elif packet[3] == 0x1B:  # 가스차단기
                     self.handleGasValve(packet)
