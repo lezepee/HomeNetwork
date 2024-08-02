@@ -40,7 +40,7 @@ class EmotionLight(Device):
         # F7 0B 01 15 01 40 XX 00 00 YY EE
         # XX: 상위 4비트 = Room Index, 하위 4비트 = Device Index
         # YY: Checksum (XOR SUM)
-        packet = bytearray([0xF7, 0x0B, 0x01, 0x15, 0x01, 0x40])
+        packet = bytearray([0xF7, 0x0B, 0x01, 0x1A, 0x01, 0x40])
         packet.append((self.room_index << 4) + (self.index + 1))
         packet.extend([0x00, 0x00])
         packet.append(self.calcXORChecksum(packet))
@@ -52,7 +52,7 @@ class EmotionLight(Device):
         # XX: 상위 4비트 = Room Index, 하위 4비트 = Device Index (1-based)
         # YY: 02 = OFF, 01 = ON
         # ZZ: Checksum (XOR SUM)
-        packet = bytearray([0xF7, 0x0B, 0x01, 0x15, 0x02, 0x40])
+        packet = bytearray([0xF7, 0x0B, 0x01, 0x1A, 0x02, 0x40])
         packet.append((self.room_index << 4) + (self.index + 1))
         if state:
             packet.extend([0x01, 0x00])
