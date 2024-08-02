@@ -9,9 +9,9 @@ RUN apk add --update --no-cache \
     python3 python3-dev py3-pip
 
 # create directory & copy source code & set working directory
-RUN mkdir -p /repos/lezepee/homenetwork/hillstate-gwanggyosan
-COPY . /repos/lezepee/homenetwork/hillstate-gwanggyosan
-WORKDIR /repos/lezepee/homenetwork/hillstate-gwanggyosan
+RUN mkdir -p /repos/lezepee/HomeNetwork/hillstate-gwanggyosan
+COPY . /repos/lezepee/HomeNetwork/hillstate-gwanggyosan
+WORKDIR /repos/lezepee/HomeNetwork/hillstate-gwanggyosan
 
 # create & activate python virtual environment, install python requirements
 RUN /bin/bash -c "source ./bootstrap.sh"
