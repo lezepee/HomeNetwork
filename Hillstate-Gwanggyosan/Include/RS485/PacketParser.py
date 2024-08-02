@@ -372,7 +372,7 @@ class PacketParser:
         elif packet[4] == 0x04:  # 각 방별 On/Off
             dev_idx = packet[6] & 0x0F
             if dev_idx == 0:  # 일반 쿼리 (존재하는 모든 디바이스)
-                self.log(f'Warning: Un-implemented packet interpreter (zero device index, {self.prettifyPacket(packet)})')
+                self.log(f'Warning: Un pack (zero device index, {self.prettifyPacket(packet)})')
             else:  # 상태 변경 명령 직후 응답
                 state = 0 if packet[8] == 0x02 else 1
                 # todo: packet[9], packet[10]이 뭔가 정보를 담고 있긴 한거 같은데...
